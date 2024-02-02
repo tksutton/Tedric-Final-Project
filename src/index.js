@@ -87,16 +87,13 @@ startButton.addEventListener("click", startButtonHandler);
  * 5. Call `playComputerTurn()` to start the game with the computer going first.
  *
  */
-function startButtonHandler() {
-  // TODO: Write your code here.
-  setLevel();
-  roundCount = 1;
-
-  startButton.classList.add("hidden");
-  statusSpan.classList.remove("hidden");
-  playComputerTurn();
-
-  return { startButton, statusSpan };
+function startButtonHandler(event) {
+  maxRoundCount = setLevel(1);
+  roundCount = 1;
+  startButton.classList.add("hidden");
+  statusSpan.classList.remove("hidden");
+  const computer = playComputerTurn();
+  return { startButton, statusSpan };
 }
 
 /**
